@@ -1,0 +1,47 @@
+name: Release Aether DMG
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Package Aether DMG
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobansky/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Build and Bundle Aether
+        run: |
+          chmod +x bundle_app.sh create_dmg.sh
+          ./create_dmg.sh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Aether.dmg
+          tag_name: ${{ github.ref_name }}
+          name: Aether ${{ github.ref_name }}
+          body: |
+            ## 🌌 Aether 2.0 — Neural macOS Optimizer & On-Device Micro-SLM
+            
+            ### 📥 Download & Install:
+            1. Download `Aether.dmg` below.
+            2. Open the disk image and drag **Aether** to your **Applications** folder.
+            3. Launch Aether and experience true Liquid Glass performance!
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

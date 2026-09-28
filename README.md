@@ -6,6 +6,8 @@
 
 **Ultra-lightweight, 100% Native, Liquid Glass System & Developer Optimizer powered by Apple Neural Engine (ANE).**
 
+[![Download DMG](https://img.shields.io/badge/Download-Aether.dmg%20(Universal)-blue?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/turgaykirkil/aether-macos/releases/latest)
+
 [![Platform](https://img.shields.io/badge/Platform-macOS%2013%2B-black?logo=apple&style=flat-square)](#)
 [![Swift](https://img.shields.io/badge/Swift-5.9%2B-F05138?logo=swift&logoColor=white&style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](#)
